@@ -1,14 +1,30 @@
-from flask import Flask, render_template
+from http.server import BaseHTTPRequestHandler, HTTPServer
 
-app = Flask(__name__)
+class RequestHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'text/html')
+        self.end_headers()
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+        html = """
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Hola Mundo</title>
+        </head>
+        <body>
+            <h1>Hola Mundo desde Python! solo jajajaj</h1>
+        </body>
+        </html>
+        """
 
-@app.route('/blog')
-def details():
-    return render_template('/blog/blog_index_page.html')
+        self.wfile.write(html.encode('utf-8'))
 
-if (__name__ == '__main__'):
-    app.run(host="0.0.0.0", port=3000)
+def run_server():
+    server_address = ('', 3000)
+    httpd = HTTPServer(server_address, RequestHandler)
+    print('Servidor iniciado en http://localhost:3000/')
+    httpd.serve_forever()
+
+if _name_ == '_main_':
+    run_server()
