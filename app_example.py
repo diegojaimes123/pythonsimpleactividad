@@ -25,6 +25,6 @@ def run_server():
     httpd = HTTPServer(server_address, RequestHandler)
     print('Servidor iniciado en http://localhost:3000/')
     httpd.serve_forever()
-
-if _name_ == '_main_':
+    
+if __name__ == '__main__':
     run_server()
