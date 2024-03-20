@@ -13,7 +13,7 @@ class RequestHandler(BaseHTTPRequestHandler):
             <title>Hola Mundo</title>
         </head>
         <body>
-            <h1>Hola Mundo desde Python! solo jajajaj</h1>
+            <h1>Hi!  ¡Python! solo jajajaj</h1>
         </body>
         </html>
         """
