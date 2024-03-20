@@ -23,7 +23,7 @@ class RequestHandler(BaseHTTPRequestHandler):
 def run_server():
     server_address = ('', 3000)
     httpd = HTTPServer(server_address, RequestHandler)
-    print('Servidor iniciado en http://localhost:3000/')
+    print('Corriendo en el 3000 :3')
     httpd.serve_forever()
     
 if __name__ == '__main__':
